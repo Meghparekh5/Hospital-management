@@ -214,5 +214,6 @@ http://localhost:9000
   "token": "JWT_TOKEN"
 }
 ```
-<img width="1366" height="768" alt="hotel-management" src="https://github.com/user-attachments/assets/abd1bcc2-fc6f-4e10-90c8-a24f4e4babfe" />
+<img width="1239" height="639" alt="hotel-management" src="https://github.com/user-attachments/assets/82bfeacd-033f-4198-a1e9-baab1c69ee15" />
+
 
