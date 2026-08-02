@@ -1,172 +1,217 @@
-# Hospital Management REST API
+# 🏥 Hospital Management REST API
 
-A Hospital Management REST API built using **Node.js**, **Express.js**, **MongoDB**, **JWT Authentication**, and **Multer** following the **MVC Architecture**.
-
----
-
-## Features
-
-- JWT Authentication
-- Role-Based Authorization
-- Password Encryption (bcrypt)
-- Department Management
-- Doctor Management
-- Patient Management
-- Appointment Management
-- Prescription Management
-- Medical Report Upload
-- Dashboard Statistics
-- MongoDB Relationships (Populate)
-- RESTful APIs
-- File Upload using Multer
+A secure and scalable **Hospital Management REST API** built with **Node.js**, **Express.js**, and **MongoDB**. This project provides authentication and complete CRUD operations for managing hospital resources such as doctors, patients, departments, appointments, prescriptions, and reports.
 
 ---
 
-## Technology Stack
+## 📌 Features
 
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- JWT
-- bcrypt
-- Multer
-- Express Validator
-- CORS
-- Morgan
+* 🔐 User Authentication (JWT)
+* 👨‍⚕️ Doctor Management
+* 🏥 Department Management
+* 🧑‍🤝‍🧑 Patient Management
+* 📅 Appointment Scheduling
+* 💊 Prescription Management
+* 📄 Medical Report Management
+* 📊 Dashboard APIs
+* 🔒 Password Encryption using bcrypt
+* 🌐 RESTful API Architecture
+* 📁 File Upload Support
+* ⚡ MongoDB Atlas Integration
 
 ---
 
-## Folder Structure
+## 🛠️ Tech Stack
+
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB Atlas & Mongoose
+* **Authentication:** JSON Web Token (JWT)
+* **Password Hashing:** bcrypt
+* **Environment Variables:** dotenv
+* **Logging:** Morgan
+* **CORS:** Enabled
+
+---
+
+## 📂 Project Structure
 
 ```
-Hospital-Management-API
+Hospital-Management-REST-API
 │
 ├── config
+│   └── db.js
+│
 ├── controllers
+│
 ├── middleware
+│
 ├── models
+│
 ├── routes
+│
 ├── uploads
+│
+├── utils
+│
+├── .env
 ├── app.js
 ├── package.json
-└── .env
+└── README.md
 ```
 
 ---
 
-## Installation
+## 🚀 Installation
 
-Clone the project
+### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/your-username/Hospital-Management-REST-API.git
 ```
 
-Install dependencies
+### 2. Navigate to Project
+
+```bash
+cd Hospital-Management-REST-API
+```
+
+### 3. Install Dependencies
 
 ```bash
 npm install
 ```
 
-Create `.env`
+### 4. Create a `.env` File
 
 ```env
 PORT=9000
-MONGO_URI=mongodb://127.0.0.1:27017/HospitalManagement
-JWT_SECRET=Hospital@123
+
+MONGO_URI=YOUR_MONGODB_CONNECTION_STRING
+
+JWT_SECRET=MyHospitalApiSecret
+
 JWT_EXPIRE=7d
+
+SESSION_SECRET=MyHospitalSession
 ```
 
-Run project
+### 5. Start the Server
 
 ```bash
 npm start
 ```
 
+or
+
+```bash
+nodemon app.js
+```
+
 ---
 
-## API Endpoints
+## 📌 API Endpoints
 
 ### Authentication
 
-- POST /api/register
-- POST /api/login
-- PUT /api/change-password
+| Method | Endpoint               |
+| ------ | ---------------------- |
+| POST   | `/api/register`        |
+| POST   | `/api/login`           |
+| PUT    | `/api/change-password` |
 
-### Department
+### Departments
 
-- POST /api/departments
-- GET /api/departments
-- GET /api/departments/:id
-- PUT /api/departments/:id
-- DELETE /api/departments/:id
+| Method | Endpoint               |
+| ------ | ---------------------- |
+| GET    | `/api/departments`     |
+| POST   | `/api/departments`     |
+| PUT    | `/api/departments/:id` |
+| DELETE | `/api/departments/:id` |
 
-### Doctor
+### Doctors
 
-- POST /api/doctors
-- GET /api/doctors
-- GET /api/doctors/:id
-- PUT /api/doctors/:id
-- DELETE /api/doctors/:id
+| Method | Endpoint           |
+| ------ | ------------------ |
+| GET    | `/api/doctors`     |
+| POST   | `/api/doctors`     |
+| PUT    | `/api/doctors/:id` |
+| DELETE | `/api/doctors/:id` |
 
-### Patient
+### Patients
 
-- POST /api/patients
-- GET /api/patients
-- GET /api/patients/:id
-- PUT /api/patients/:id
-- DELETE /api/patients/:id
+| Method | Endpoint            |
+| ------ | ------------------- |
+| GET    | `/api/patients`     |
+| POST   | `/api/patients`     |
+| PUT    | `/api/patients/:id` |
+| DELETE | `/api/patients/:id` |
 
-### Appointment
+### Appointments
 
-- POST /api/appointments
-- GET /api/appointments
-- GET /api/appointments/:id
-- PUT /api/appointments/:id
-- DELETE /api/appointments/:id
+| Method | Endpoint                |
+| ------ | ----------------------- |
+| GET    | `/api/appointments`     |
+| POST   | `/api/appointments`     |
+| PUT    | `/api/appointments/:id` |
+| DELETE | `/api/appointments/:id` |
 
-### Prescription
+### Prescriptions
 
-- POST /api/prescriptions
-- GET /api/prescriptions
-- GET /api/prescriptions/:id
-- PUT /api/prescriptions/:id
-- DELETE /api/prescriptions/:id
+| Method | Endpoint                 |
+| ------ | ------------------------ |
+| GET    | `/api/prescriptions`     |
+| POST   | `/api/prescriptions`     |
+| PUT    | `/api/prescriptions/:id` |
+| DELETE | `/api/prescriptions/:id` |
 
-### Medical Reports
+### Reports
 
-- POST /api/reports
-- GET /api/reports
-- GET /api/reports/:id
-- PUT /api/reports/:id
-- DELETE /api/reports/:id
+| Method | Endpoint           |
+| ------ | ------------------ |
+| GET    | `/api/reports`     |
+| POST   | `/api/reports`     |
+| PUT    | `/api/reports/:id` |
+| DELETE | `/api/reports/:id` |
 
 ### Dashboard
 
-- GET /api/dashboard
+| Method | Endpoint         |
+| ------ | ---------------- |
+| GET    | `/api/dashboard` |
 
 ---
 
-## Authentication
+## 🔑 Authentication
 
-All protected APIs require
+Protected routes require a JWT token.
+
+Add the following header in Postman:
 
 ```
-Authorization: Bearer <JWT_TOKEN>
+Authorization: Bearer YOUR_JWT_TOKEN
 ```
 
 ---
 
-## User Roles
+## 🧪 Testing
 
-- Admin
-- Doctor
-- Receptionist
-- Patient
+Use **Postman** or any API testing tool.
+
+Example Base URL:
+
+```
+http://localhost:9000
+```
 
 ---
 
-## Author
+## 📸 Sample Response
 
-Jainish Rana
+```json
+{
+  "success": true,
+  "message": "Login Successful",
+  "token": "JWT_TOKEN"
+}
+```
+
